@@ -88,7 +88,7 @@ module RedmineOpenidConnect
         end
 
         # Check if there's already an existing user
-        user = User.find_by_mail(user_info["user_name"])
+        user = User.find_by_login(user_info["user_name"])
 
         if user.nil?
           if !OicSession.create_user_if_not_exists?
